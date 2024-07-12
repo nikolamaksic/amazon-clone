@@ -1,14 +1,14 @@
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
-  // Configure one or more authentication providers
   providers: [
-    Google({
+    GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+      authorizationUrl:
+        "https://accounts.google.com/o/oauth2/auth?response_type=code&prompt=consent&access_type=offline",
     }),
-    // ...add more providers here
   ],
 };
 
